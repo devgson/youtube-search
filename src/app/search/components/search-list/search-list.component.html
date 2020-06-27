@@ -1,0 +1,27 @@
+<div class="ui four column grid">
+  <div class="column" *ngFor="let video of videos">
+    <div class="ui card">
+      <div class="image">
+        <img [src]="video.thumbnail">
+      </div>
+      <div class="content">
+        <a class="header" style="margin: 1em 0 1em 0;">{{ video.title }}</a>
+        <div class="meta">
+          <span class="date" style="font-weight: bolder;">
+            <a [href]="video.channelUrl" target="_blank">{{ video.channelTitle }}</a>
+          </span>
+          <span class="ui right floated date" style="font-weight: bolder;">{{ video.publishedAt | date:'mediumDate' }}</span>
+        </div>
+        <div class="description">
+          {{ video.description?.slice(0,50) }}...
+        </div>
+      </div>
+      <a [href]="video.videoUrl" target="_blank" class="extra content">
+        <button class="ui right floated tiny red right labeled icon button">
+          <i class="external alternate icon"></i>
+          Watch
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

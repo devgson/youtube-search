@@ -1,0 +1,13 @@
+<div>
+  <app-search-input (search)="handleSearch($event)"></app-search-input>
+  <div *ngIf="inputTouched && !videos.length" class="ui four wide column centered grid" style="margin: 3rem;">
+    <div class="ui raised aligned segment red warning message">
+      <i class="warning icon"></i>
+      <span class="ui centered" style="margin: 0 auto;">No Video Found</span>
+    </div>
+  </div>
+  <div *ngIf="loading" style="margin: 3rem;">
+    <div class="ui active centered inline loader"></div>
+  </div>
+  <app-search-list *ngIf="!loading" [videos]="videos"></app-search-list>
+</div>
